@@ -1,59 +1,38 @@
-# ServerOverview
+# Helvetia Take-Home Assignment
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.3.
+Umsetzung der Take-Home-Aufgabe für die Stelle als [Frontend Developer](https://jobs.helvetia.com/offene-stellen/frontend-developer-w-m-d/b51005bf-6e4c-49fe-8948-aa9bb049b0d5).
 
-## Development server
+## How to Run
 
-To start a local development server, run:
+### Voraussetzungen
 
-```bash
-ng serve
-```
+- [Docker](https://www.docker.com/products/docker-desktop/)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Starten des Servers
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Um die Anwendung lokal auf `localhost:8080` auszuführen:
 
 ```bash
-ng generate component component-name
+docker compose up
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Structure
 
-```bash
-ng generate --help
+```
+AppComponent
+├── HeaderComponent
+├── ServeroverviewComponent (Page)
+│   └── ServerListComponent (Component B)
+│       ├── ServerCardComponent (Component A)
+│       ├── ServerCardComponent (Component A)
+│       └── ServerCardComponent (Component A)
+│       └── ...
+└── FooterComponent
 ```
 
-## Building
+## Assumptions
 
-To build the project run:
+- > __"Soll alle Server auflisten und die Validierung für deren Labels steuern."__ Die `ServerCardComponent (Komponente A)` ist lediglich für die Visualisierung zuständig. Jegliche Validierungslogik befindet sich ausschließlich in der `ServerListComponent (Komponente B)`.
+- > Die JSON-Struktur wird als repräsentativ für eine geschachtelte interne Struktur von Servern betrachtet.
 
-```bash
-ng build
-```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
