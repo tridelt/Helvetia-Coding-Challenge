@@ -21,7 +21,7 @@ import {MatInput, MatInputModule} from '@angular/material/input';
   ],
   templateUrl: './inline-edit-field.component.html',
   standalone: true,
-  styleUrl: './inline-edit-field.component.css'
+  styleUrl: './inline-edit-field.component.scss'
 })
 export class InlineEditFieldComponent {
 

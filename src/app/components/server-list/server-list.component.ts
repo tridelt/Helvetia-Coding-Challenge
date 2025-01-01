@@ -13,7 +13,7 @@ import {AbstractControl} from '@angular/forms';
   ],
   templateUrl: './server-list.component.html',
   standalone: true,
-  styleUrl: './server-list.component.css'
+  styleUrl: './server-list.component.scss'
 })
 export class ServerListComponent {
 

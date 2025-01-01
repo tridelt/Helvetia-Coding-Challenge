@@ -15,7 +15,7 @@ import {InlineEditFieldComponent} from '../../shared/components/inline-edit-fiel
 @Component({
   selector: 'app-server-card',
   templateUrl: './server-card.component.html',
-  styleUrls: ['./server-card.component.css'],
+  styleUrls: ['./server-card.component.scss'],
   imports: [
     MatCardHeader,
     MatCard,
