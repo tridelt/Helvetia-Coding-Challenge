@@ -1,0 +1,32 @@
+<div [formGroup]="serverCardForm">
+  <ng-container *ngIf="!isEditing; else editMode">
+    <mat-card-title class="card-title">
+      <span class="card-title-text">
+        {{ serverCardForm.get('label')!.value }}
+      </span>
+      <mat-icon class="edit-icon interactive-icon" (click)="enterLabelEditMode()">edit</mat-icon>
+    </mat-card-title>
+  </ng-container>
+
+  <!-- Edit Mode -->
+  <ng-template #editMode>
+    <mat-card-title class="edit-mode-title">
+      <mat-form-field id="in-line-editing-server" appearance="outline" class="form-field-inline">
+        <input
+          matInput
+          formControlName="label"
+          (keydown.enter)="onSaveLabelEdit()"
+          (keydown.escape)="cancelLabelEditMode()"
+        />
+        <mat-error id="in-line-editing-error" *ngIf="serverCardForm.get('label')?.hasError('customError')">
+          {{ serverCardForm.get('label')?.errors?.['message'] }}
+        </mat-error>
+      </mat-form-field>
+
+      <div class="confirm-cancel-icons">
+        <mat-icon class="interactive-icon" (click)="onSaveLabelEdit()">check</mat-icon>
+        <mat-icon class="interactive-icon" (click)="cancelLabelEditMode()">cancel</mat-icon>
+      </div>
+    </mat-card-title>
+  </ng-template>
+</div>
