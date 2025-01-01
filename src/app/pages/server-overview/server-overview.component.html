@@ -1,0 +1,8 @@
+<div class="page-container">
+  <div class="actions-container">
+    <button class="custom-button" mat-stroked-button color="primary" (click)="openServerModal()">Add New Server</button>
+  </div>
+  <app-server-list
+    [servers]="servers()"
+  ></app-server-list>
+</div>

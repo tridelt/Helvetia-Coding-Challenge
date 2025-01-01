@@ -1,0 +1,31 @@
+<div class="modal-wrapper">
+  <h2 mat-dialog-title>Add New Server</h2>
+  <form #serverForm="ngForm">
+    <div mat-dialog-content class="dialog-content">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Server Name</mat-label>
+        <input matInput [(ngModel)]="serverName" name="serverName" placeholder="Enter server name" aria-label="Server Name" #serverNameField="ngModel" required minlength="5" />
+        <mat-error *ngIf="serverNameField.errors?.['required']">
+          Server name is required.
+        </mat-error>
+        <mat-error *ngIf="serverNameField.errors?.['minlength']">
+          Must be at least 5 characters long.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Server Path (Optional)</mat-label>
+        <input matInput [(ngModel)]="serverPath" name="serverPath" placeholder="Enter server path" aria-label="Server Path" />
+      </mat-form-field>
+
+      <mat-checkbox [(ngModel)]="serverActive" name="serverActive" aria-label="Active Checkbox">
+        Active
+      </mat-checkbox>
+    </div>
+
+    <div mat-dialog-actions align="end" class="dialog-actions">
+      <button mat-button (click)="closeDialog()" type="button">Cancel</button>
+      <button mat-raised-button color="primary" [disabled]="serverForm.invalid" (click)="saveServer()" type="button">Add</button>
+    </div>
+  </form>
+</div>
