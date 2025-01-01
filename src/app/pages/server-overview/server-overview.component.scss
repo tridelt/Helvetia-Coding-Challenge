@@ -1,0 +1,18 @@
+.page-container {
+  padding: 0 50px;
+}
+
+.custom-button {
+  --mat-sys-primary: #00818F;
+  --mat-sys-outline: #00818F;
+  border-radius: 11px;
+  outline-color: red;
+  color: red;
+}
+
+.actions-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}

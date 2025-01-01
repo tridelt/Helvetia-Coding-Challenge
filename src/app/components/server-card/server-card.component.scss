@@ -1,0 +1,38 @@
+.custom-card {
+  --mat-sys-surface: white !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 14px 8px;
+}
+
+.custom-slide-toggle {
+  --mat-sys-primary: #5cb85c;
+}
+
+.card-icon {
+  padding: 12px 12px 12px 3px;
+  font-size: 34px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 2px;
+  height: 52px;
+}
+
+
+.toggle-container {
+  margin-left: auto;
+  margin-right: 3px;
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+
+
+
+
