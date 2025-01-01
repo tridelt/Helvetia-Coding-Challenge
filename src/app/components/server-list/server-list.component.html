@@ -1,0 +1,8 @@
+<div class="server-list">
+  <app-server-card
+    *ngFor="let server of servers"
+    [server]="server"
+    (persistChanges)="saveServerChanges($event)"
+    (labelControlElement)="onLabelControlElementChange($event)">
+  </app-server-card>
+</div>
