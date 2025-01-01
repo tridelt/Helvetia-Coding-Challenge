@@ -1,0 +1,26 @@
+<form [formGroup]="serverCardForm">
+  <mat-card class="custom-card" appearance="outlined">
+    <mat-icon class="card-icon">dns</mat-icon>
+    <mat-card-header class="card-header">
+
+      <!-- Left Section: Inline Editable Label -->
+      <app-inline-edit-field
+        [serverCardForm]="serverCardForm"
+        [serverLabel]="this.server.label"
+        (saveLabelEdit)="onSaveLabelEdit()"
+      >
+      </app-inline-edit-field>
+
+      <!-- Right Section: Toggle with "On/Off" Label -->
+      <div class="toggle-container">
+        <mat-slide-toggle
+          class="custom-slide-toggle"
+          formControlName="active"
+          (change)="onTogglePowerSwitch()"
+        ></mat-slide-toggle>
+        <span>{{ serverCardForm.get('active')?.value ? 'On' : 'Off' }}</span>
+      </div>
+
+    </mat-card-header>
+  </mat-card>
+</form>
