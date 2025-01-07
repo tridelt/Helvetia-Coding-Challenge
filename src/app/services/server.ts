@@ -3,6 +3,7 @@ import {Server} from '../shared/models/server';
 
 //   read Json File from assets folder
 import * as rawServerData from '../../assets/serverdata.json';
+import {HttpClient} from '@angular/common/http';
 
 
 @Injectable({
@@ -14,7 +15,10 @@ export class ServerService {
 
   servers = signal<Server[]>(this.loadServers());
 
-  constructor() {
+  constructor(private http: HttpClient) {
+    // this.http.get('https://api.example.com/data').subscribe((data) => {
+    //   console.log(data);
+    // });
     // ensures that whenever this.servers is updated, these changes are automatically persisted in localStorage
     effect(() => {
       this.persistServersLocally(this.servers());
