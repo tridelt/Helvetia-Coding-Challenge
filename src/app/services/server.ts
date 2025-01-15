@@ -4,6 +4,7 @@ import {Server} from '../shared/models/server';
 //   read Json File from assets folder
 import * as rawServerData from '../../assets/serverdata.json';
 import {HttpClient} from '@angular/common/http';
+import {catchError, Observable, throwError} from 'rxjs';
 
 
 @Injectable({
@@ -29,6 +30,15 @@ export class ServerService {
   private persistServersLocally(servers: Server[]): void {
     localStorage.setItem(this.localStorageKey, JSON.stringify(servers));
   }
+
+  // getServers(): Observable<Server[]> {
+  //   return this.http.get<Server[]>('https://api.example.com/data').pipe(
+  //     catchError((err) => {
+  //       console.error('Error fetching servers:', err);
+  //       return throwError(() => new Error('Error fetching servers'));
+  //     })
+  //   );
+  // }
 
   // Add a new server
   addServer(newServerPartial: Omit<Server, 'id'>): void {
@@ -81,8 +91,8 @@ export class ServerService {
 
       if (key === "server") {
         results.push({
-          label: obj[key]['label'],
-          active: obj[key]['active'],
+          label: obj[key]['label'] ?? '',
+          active: obj[key]['active'] ?? '',
           path: currentPath,
           id: this.generateUniqueId(),
         });

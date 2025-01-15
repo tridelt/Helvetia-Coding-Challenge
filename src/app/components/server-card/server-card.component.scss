@@ -6,6 +6,7 @@
   padding: 14px 8px;
 }
 
+
 .custom-slide-toggle {
   --mat-sys-primary: #5cb85c;
 }
@@ -35,4 +36,12 @@
 
 
 
+@media (max-width: 849px) {
+  .card-icon {
+    display: none;
+  }
 
+  .text-status {
+    display: none;
+  }
+}

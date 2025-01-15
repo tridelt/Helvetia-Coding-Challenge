@@ -1,6 +1,37 @@
+<div class="list-buttons" style="margin-bottom: 10px; align-items: center">
+  <div style="margin-bottom: 10px">
+    <mat-slide-toggle
+      class="custom-slide-toggle"
+      color="primary"
+      [(ngModel)]="validationEnabled"
+    ></mat-slide-toggle>
+    <span>Validation {{ validationEnabled ? "Enabled" : "Disabled" }}</span>
+  </div>
+  <div class="filter-buttons">
+    <mat-button-toggle-group
+      name="fontStyle"
+      aria-label="Font Style"
+      style="margin-right: 10px"
+      (change)="onFilterChange()"
+      [(ngModel)]="statusFilter">
+      <mat-button-toggle value="all">All</mat-button-toggle>
+      <mat-button-toggle value="online">Active</mat-button-toggle>
+      <mat-button-toggle value="offline">Offline</mat-button-toggle>
+    </mat-button-toggle-group>
+    <mat-form-field class="example-full-width">
+      <input
+        matInput
+        placeholder="Filter by Label"
+        [(ngModel)]="labelFilter"
+        (ngModelChange)="onFilterChange()"
+      >
+    </mat-form-field>
+  </div>
+</div>
+
 <div class="server-list">
   <app-server-card
-    *ngFor="let server of servers"
+    *ngFor="let server of filteredServers"
     [server]="server"
     (persistChanges)="saveServerChanges($event)"
     (labelControlElement)="onLabelControlElementChange($event)">

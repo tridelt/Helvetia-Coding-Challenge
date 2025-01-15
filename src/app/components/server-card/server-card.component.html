@@ -18,7 +18,7 @@
           formControlName="active"
           (change)="onTogglePowerSwitch()"
         ></mat-slide-toggle>
-        <span>{{ serverCardForm.get('active')?.value ? 'On' : 'Off' }}</span>
+        <span class="text-status">{{ serverCardForm.get('active')?.value ? 'On' : 'Off' }}</span>
       </div>
 
     </mat-card-header>
